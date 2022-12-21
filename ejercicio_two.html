@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 2</title>
+    <style>
+        label{
+            background-color: antiquewhite;
+        }
+        label:hover{
+            background-color: aqua;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="usuario">
+    <button onclick="deletreo()">Deletrear</button>
+    <button >
+        <a href="/Index 2.html">Recargar pagina</a>
+    </button>
+    <br>
+    <div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function deletreo(){
+            let body = document.querySelector("body");
+            let label= document.querySelector("div");
+            let usuario= $("#usuario").val();
+            let arreglo= usuario.split("");
+            let cont=0;
+            console.log(arreglo)
+            if(usuario.length!=0){
+                for(let i=0;i<usuario.length;i++){
+                let mylabel= document.createElement("label");
+                mylabel.textContent= arreglo[i];
+                label.appendChild(mylabel);
+                cont++;
+               }
+            let mylabel2= document.createElement("a");
+            mylabel2.textContent= "El numero de caracteres en la palabra es de "+cont;
+            body.appendChild(mylabel2);
+            }
+            
+            
+        }
+    </script>
+</body>
+</html>
