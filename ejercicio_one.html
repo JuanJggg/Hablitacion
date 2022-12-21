@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 1</title>
+</head>
+<body>
+    <input type="text" id="nombre" onblur="usuario()">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function usuario(){
+            let usuario= $("#nombre").val();
+            if(usuario.length==0){
+                Swal.fire({
+                icon: 'error',
+                title: 'Algo salio mal',
+                text: 'El campo de texto esta vacio',
+                footer: '<a href="">Algun problema</a>'
+                })
+            }
+            else 
+            if(usuario.length==1){
+                Swal.fire({
+                icon: 'error',
+                title: 'Algo salio mal',
+                text: 'Un solo caracter no es suficiente para evaluar',
+                footer: '<a href="">Algun problema?</a>'
+                })
+            }else{
+                console.log(usuario);
+                let arreglo= usuario.split("");
+                console.log(arreglo);
+                let reversa = arreglo.reverse();
+                console.log(reversa);
+                let ujoin = reversa.join("");
+                console.log(ujoin);
+
+                if(usuario==ujoin){
+                    Swal.fire({
+                    icon: 'success',
+                    title: 'La palabra es palindromo',
+                    text: 'La palabra coincide al derecho y al reves',
+                })
+                }else{
+
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'La palabra esta no es el palindromo',
+                    text: 'La palabra no coincide ni al derecho ni al revz',
+                }) 
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>
